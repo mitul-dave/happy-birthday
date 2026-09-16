@@ -1,7 +1,6 @@
 (() => {
   const ageSection = document.querySelector(".age");
   const confettiBurstBtn = document.getElementById("confettiBurst");
-  const celebrateBtn = document.getElementById("celebrateBtn");
   const candles = [...document.querySelectorAll(".candle")];
   const cakeMessage = document.getElementById("cakeMessage");
   const wishButtons = [...document.querySelectorAll(".wish")];
@@ -117,12 +116,6 @@
     playChime();
   });
 
-  celebrateBtn.addEventListener("click", () => {
-    burstConfetti(120);
-    playChime(true);
-    ageSection.classList.add("is-flipped");
-  });
-
   /* ---------- Age flip ---------- */
   const ageObserver = new IntersectionObserver(
     (entries) => {
@@ -220,14 +213,14 @@
   async function startSong() {
     if (!localMusic) return;
     setMusicUi(true);
+    // Keep in DOM for playback; CSS hides the UI on mobile
     if (nowPlaying) nowPlaying.hidden = false;
     try {
       localMusic.currentTime = 0;
       localMusic.muted = false;
       await localMusic.play();
     } catch (err) {
-      // Browser may need a second tap on the video controls
-      console.warn("Playback needs a tap on the player:", err);
+      console.warn("Playback blocked:", err);
     }
   }
 
