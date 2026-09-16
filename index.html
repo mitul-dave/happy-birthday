@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Anushka - Turning 23</title>
+  <meta name="description" content="A little celebration for my best friend becoming 23." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__glow ambient__glow--a"></div>
+    <div class="ambient__glow ambient__glow--b"></div>
+    <div class="ambient__glow ambient__glow--c"></div>
+    <canvas id="petals" class="petals"></canvas>
+  </div>
+
+  <header class="topbar">
+    <p class="topbar__mark">for my best friend</p>
+    <button class="topbar__music" id="musicToggle" type="button" aria-pressed="false" aria-label="Play Long Live - Taylor Swift">
+      <span class="topbar__music-dot"></span>
+      <span id="musicLabel">play song</span>
+    </button>
+  </header>
+
+  <div class="now-playing" id="nowPlaying" hidden>
+    <div class="now-playing__meta">
+      <p class="now-playing__label">now playing</p>
+      <p class="now-playing__title">Long Live - Taylor Swift</p>
+    </div>
+    <div class="now-playing__frame">
+      <video id="localMusic" src="music/long_live.mp4" playsinline loop controls preload="metadata"></video>
+    </div>
+    <button type="button" class="now-playing__close" id="musicClose" aria-label="Stop music">×</button>
+  </div>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__veil"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">twenty-two · becoming · twenty-three</p>
+        <h1 class="hero__name" id="friendName">Anushka</h1>
+        <p class="hero__line">Happy birthday to the girl who makes ordinary days feel like magic.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#letter">Open your letter</a>
+          <button class="btn btn--ghost" id="confettiBurst" type="button">Throw confetti</button>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">
+        <span>scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="age" id="age">
+      <div class="age__stage">
+        <div class="age__number age__number--from" id="ageFrom">22</div>
+        <div class="age__arrow" aria-hidden="true">
+          <svg viewBox="0 0 80 24" fill="none">
+            <path d="M2 12h70M58 2l18 10-18 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="age__number age__number--to" id="ageTo">23</div>
+      </div>
+      <p class="age__caption">A soft new chapter. Same bright soul. Even more of you to love.</p>
+    </section>
+
+    <section class="letter" id="letter">
+      <div class="letter__frame">
+        <p class="letter__date">on your 23rd birthday</p>
+        <h2 class="letter__title">A note from your best friend</h2>
+        <div class="letter__body">
+          <p>To the girl who knows my chaos and still chooses me every time -</p>
+          <p>Happy birthday. Twenty-three looks beautiful on you already. You have this quiet way of lighting up rooms, softening hard days, and making people feel seen. I hope this year gives you everything soft and brave that you deserve.</p>
+          <p>Thank you for the laughter that hurts my cheeks, the late-night talks, the unhinged jokes, and the kind of friendship that feels like home. Here’s to more adventures, more inside jokes, and more versions of you that the world gets to meet.</p>
+          <p class="letter__sign">With all my love,<br /><span>your best friend forever</span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wishes" id="wishes">
+      <div class="section-head">
+        <h2>Three wishes for you</h2>
+        <p>Tap a wish. Keep it. It’s yours.</p>
+      </div>
+      <div class="wishes__grid">
+        <button class="wish" type="button" data-wish="1">
+          <span class="wish__num">01</span>
+          <span class="wish__text">May you feel deeply loved - even on the quiet days.</span>
+        </button>
+        <button class="wish" type="button" data-wish="2">
+          <span class="wish__num">02</span>
+          <span class="wish__text">May your dreams grow louder than your doubts.</span>
+        </button>
+        <button class="wish" type="button" data-wish="3">
+          <span class="wish__num">03</span>
+          <span class="wish__text">May this year surprise you with soft joy, again and again.</span>
+        </button>
+      </div>
+      <p class="wishes__echo" id="wishEcho" aria-live="polite"></p>
+    </section>
+
+    <section class="cake" id="cake">
+      <div class="section-head">
+        <h2>Make a wish</h2>
+        <p>Blow out the candles. (Click them.)</p>
+      </div>
+      <div class="cake__scene">
+        <div class="cake__plate"></div>
+        <div class="cake__tier cake__tier--bottom"></div>
+        <div class="cake__tier cake__tier--top"></div>
+        <div class="cake__frost"></div>
+        <div class="candles" id="candles">
+          <button class="candle" type="button" aria-label="Blow out candle 1"><span class="flame"></span></button>
+          <button class="candle" type="button" aria-label="Blow out candle 2"><span class="flame"></span></button>
+          <button class="candle" type="button" aria-label="Blow out candle 3"><span class="flame"></span></button>
+        </div>
+      </div>
+      <p class="cake__message" id="cakeMessage">The candles are waiting…</p>
+    </section>
+
+    <section class="finale" id="finale">
+      <div class="finale__burst" aria-hidden="true"></div>
+      <h2 class="finale__title">Here’s to <span id="finaleName">Anushka</span></h2>
+      <p class="finale__sub">22 was wonderful. 23 will be unforgettable.</p>
+      <button class="btn btn--primary" id="celebrateBtn" type="button">Celebrate again</button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Made with love for the best girl I know</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
